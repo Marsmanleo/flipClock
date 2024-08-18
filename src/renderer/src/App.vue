@@ -1,6 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>abc</main>
+  <Suspense>
+    <RouterView />
+  </Suspense>
 </template>
 <style lang="less"></style>
