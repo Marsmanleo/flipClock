@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { waitForDebugger } from 'inspector'
 
 export type OptionsType = {
   el: string
