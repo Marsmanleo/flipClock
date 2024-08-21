@@ -3,17 +3,12 @@ import FlipClock from '@renderer/composables/FlipClock'
 import { onMounted } from 'vue'
 import '@renderer/assets/flipClock.scss'
 import FooterVue from '@renderer/components/footer.vue'
+import { config, useConfigStore } from '@renderer/store/useConfigStore'
+
+const { config } = useConfigStore()
 
 onMounted(() => {
-  const instance = new FlipClock({
-    el: '#hd',
-    type: 'timing',
-    timing: {
-      hour: 2,
-      minute: 8,
-      second: 100
-    }
-  })
+  const instance = new FlipClock({ el: '#hd', ...config })
   instance.render()
 })
 </script>
