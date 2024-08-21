@@ -6,7 +6,11 @@ hd()
 
 <template>
   <Suspense>
-    <RouterView />
+    <RouterView #default="{ Component }">
+      <div class="drag">
+        <component :is="Component" />
+      </div>
+    </RouterView>
   </Suspense>
 </template>
 <style lang="less"></style>
