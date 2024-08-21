@@ -25,6 +25,9 @@ function createWindow(): void {
     }
   })
 
+  //MOUSE 穿透
+  mainWindow.setIgnoreMouseEvents(true, { forward: true })
+
   if (is.dev) {
     mainWindow.webContents.openDevTools()
   }
