@@ -8,7 +8,7 @@ hd()
   <Suspense>
     <RouterView #default="{ Component }">
       <div class="drag">
-        <component :is="Component" />
+        <component :is="Component" class="flex flex-col justify-center items-center" />
       </div>
     </RouterView>
   </Suspense>
