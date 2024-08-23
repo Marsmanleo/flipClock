@@ -6,7 +6,7 @@ export const useConfigStore = defineStore('config', () => {
     clock: {
       bgColor: '#fff',
       color: '#000',
-      type: 'timing' as 'clock' | 'timing',
+      type: 'clock' as 'clock' | 'timing',
       timing: {
         hour: 0,
         minute: 8,

@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Clock from '@renderer/views/Clock.vue'
+import Config from '@renderer/views/Config.vue'
 
-const routes = [{ name: 'clock', path: '/', component: Clock }]
+const routes = [
+  { name: 'clock', path: '/', component: Clock },
+  { name: 'config', path: '/', component: Config }
+]
 
 const router = createRouter({
   history: createWebHistory(),
