@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AlarmClock, Time } from '@icon-park/vue-next'
 // useConfigStore
 import { useConfigStore } from '@renderer/store/useConfigStore'
 const { config } = useConfigStore()
@@ -10,9 +11,13 @@ const toggle = () => {
 
 <template>
   <main
-    class="bg-white py-1 rounded-md flex justify-between items-center gap-1 opacity-0 group-hover:opacity-100 flex justify-between"
+    class="bg-white px-2 py-1 rounded-md flex justify-between items-center gap-1 opacity-0 group-hover:opacity-100 flex justify-between"
   >
-    <span @click="toggle">切换 - {{ config.clock.type }}</span>
+    <div @click="toggle">
+      <AlarmClock theme="outline" size="16" v-if="config.clock.type == 'timing'" />
+      <Time theme="outline" size="16" v-else />
+    </div>
+    <!-- <span @click="toggle">切换 - {{ config.clock.type }}</span> -->
     <div class="flex gap-1 text-sm opacity-80 text-gray-800">
       <RouterLink :to="{ name: 'config' }" v-if="$route.name == 'clock'">配置</RouterLink>
       <RouterLink :to="{ name: 'clock' }" v-else>時鐘</RouterLink>
