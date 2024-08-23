@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import Navbar from './components/Navbar.vue'
+import { Crown } from '@icon-park/vue-next'
+import FooterVue from '@renderer/components/footer.vue'
 import useMouseEvent from '@renderer/composables/useMouseEvent'
 const { hd } = useMouseEvent()
 hd()
@@ -8,9 +9,12 @@ hd()
 <template>
   <Suspense>
     <RouterView #default="{ Component }">
-      <div class="group">
-        <Navbar class="" />
+      <div class="">
+        <div class="flex justify-center w-full mb-2 drag">
+          <crown theme="outline" size="35" class="text-yellow-400" />
+        </div>
         <component :is="Component" class="flex flex-col justify-center items-center" />
+        <FooterVue />
       </div>
     </RouterView>
   </Suspense>
