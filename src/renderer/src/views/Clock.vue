@@ -2,32 +2,37 @@
 import FlipClock from '@renderer/composables/FlipClock'
 import { onMounted, watch } from 'vue'
 import '@renderer/assets/flipClock.scss'
-// useConfigStore
 import { useConfigStore } from '@renderer/store/useConfigStore'
 const { config } = useConfigStore()
 const instance = new FlipClock({ el: '#hd', ...config.clock })
-
+watch(
+  () => config.clock.type,
+  () => {
+    instance
+      .destroy()
+      .config({ el: '#hd', ...config.clock })
+      .render()
+  }
+)
 onMounted(() => {
-  watch(
-    () => config.clock.type,
-    () => {
-      // console.log(config.clock.type)
-      instance
-        .destroy()
-        .config({ el: '#hd', ...config.clock })
-        .render()
-    }
-  )
-
   instance.render()
 })
+
+//刷新倒计时
+const refresh = () => {
+  if (config.clock.type == 'clock') return
+  instance
+    .destroy()
+    .config({ el: '#hd', ...config.clock })
+    .render()
+}
 </script>
 
 <template>
   <main>
     <div
       id="hd"
-      class="drag"
+      @dblclick="refresh"
       :style="{
         '--bgColor': config.clock.bgColor,
         '--color': config.clock.color
@@ -38,8 +43,8 @@ onMounted(() => {
 
 <style lang="scss">
 :root {
-  /* --bgColor: red;
-  --width: 20px;
-  --color: black; */
+  // --bgColor: red;
+  // --width: 35px;
+  // --color: #fff;
 }
 </style>
