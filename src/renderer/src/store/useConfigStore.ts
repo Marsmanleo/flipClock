@@ -15,7 +15,8 @@ export const useConfigStore = defineStore('config', () => {
     },
     footer: {
       bgColor: '#16a085',
-      color: '#fff'
+      color: '#fff',
+      content: '努力吧！'
     }
   })
 

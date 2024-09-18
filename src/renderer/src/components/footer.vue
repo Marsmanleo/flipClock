@@ -9,7 +9,9 @@ const { config } = useConfigStore()
     class="drag w-full px-2 text-center mt-2 rounded-md text-white flex justify-between items-center"
     :style="{ backgroundColor: config.footer.bgColor, color: config.footer.color }"
   >
-    <div class="text-sm">努力做事吧！</div>
+    <div class="text-sm">
+      {{ config.footer.content }}
+    </div>
     <Navbar class="" />
   </main>
 </template>
