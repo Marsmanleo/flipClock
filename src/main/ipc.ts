@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain } from 'electron'
+import { BrowserWindow, ipcMain, IpcMainEvent, IgnoreMouseEventsOptions } from 'electron'
 
 ipcMain.on(
   'setIgnoreMouseEvents',
